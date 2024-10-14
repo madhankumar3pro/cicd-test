@@ -1,9 +1,13 @@
-from flask import Flask
+from fastapi import FastAPI
 
+app = FastAPI()
 
-app = Flask(__name__)
+@app.get("/")
+def read_root():
+    return {"message": "Hello, FastAPI on Azure!"}
 
-@app.route('/')
-def home():
-    return 'Hello, tarun how are you!'
+@app.get("/ping")
+def ping():
+    return {"ping": "pong"}
+
 
